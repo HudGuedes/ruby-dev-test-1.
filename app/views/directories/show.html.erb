@@ -1,0 +1,27 @@
+<li><%= link_to('Novo diretório', new_directory_path(parent_id: @directory.id)) %>
+<%= link_to('Novo Arquivo', new_archive_path(directory_id: @directory.id)) %></li>
+</br>
+<h4><i class="fa fa-folder-open-o"></i> <%= @directory.title %></h4>
+<% if @subdirectories.nil? %>
+	<div class="alert alert-info">
+		Nenhum diretório adicionado
+	</div>
+<% else %>
+	<div class="row mt-2">
+		<% @subdirectories.each do |directory| %>
+			<div class="col-2">
+				<%= link_to directory_path(directory.id) do %>
+					<i class="fa fa-folder-o"></i> <%= directory.title %>
+				<% end %>
+			</div>
+		<% end %>
+		<% @directory.archives.each do |file| %>
+			<div class="col-2">
+				<%= link_to download_archive_path(file.id) do %>
+					<i class="fa fa-file-o"></i> <%= file.title %>
+				<% end %>
+			</div>
+		<% end %>
+	</div>
+<% end %>
+

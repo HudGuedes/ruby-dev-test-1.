@@ -1,0 +1,17 @@
+<li><%= link_to('Novo diretório', new_directory_path) %></li>
+<% if @directories.nil? %>
+	<div class="alert alert-info">
+		Nenhum diretório adicionado
+	</div>
+<% else %>
+	<div class="row mt-2">
+		<% @directories.each do |directory| %>
+			<div class="col-2">
+				<%= link_to directory_path(directory.id) do %>
+					<i class="fa fa-folder-o"></i> <%= directory.title %>
+				<% end %>
+			</div>
+		<% end %>
+	</div>
+<% end %>
+

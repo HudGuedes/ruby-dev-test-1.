@@ -1,0 +1,8 @@
+</br>
+<%= form_for @archive do |f| %>
+  <%= f.file_field :file %>
+  <div>
+    <%= f.submit "Criar arquivo", class: 'btn btn-link'%>
+  </div>
+  <%= f.hidden_field :directory_id, value: params[:directory_id] %>
+<% end %>

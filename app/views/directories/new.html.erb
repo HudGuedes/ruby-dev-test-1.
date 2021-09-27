@@ -1,0 +1,13 @@
+<%= form_with model: @directory do |form| %>
+	<div>
+	  <%= form.label :title %><br>
+	  <%= form.text_field :title %>
+	</div>
+
+	<%= form.hidden_field :parent_id, value: params[:parent_id] %>
+
+	<div>
+	  <%= form.submit "Criar diretório", class: 'btn btn-link' %>
+	</div>
+
+<% end %>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ClicksignTest1</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <h1 class="text-center"><i class="fa fa-folder-o"></i> ClickSign</h1>
+    <hr/>
+    <div class="container">
+      <%= link_to('Início', directories_path) %>
+    <br>
+      <%= yield %>
+    </div>
+    <script src="https://use.fontawesome.com/402a89c6ca.js"></script>
+  </body>
+</html>
