@@ -15,7 +15,7 @@
 				<% end %>
 			</div>
 		<% end %>
-		<% @directory.archives.each do |file| %>
+		<% @directory.archives.order(:title).each do |file| %>
 			<div class="col-2">
 				<%= link_to download_archive_path(file.id) do %>
 					<i class="fa fa-file-o"></i> <%= file.title %>

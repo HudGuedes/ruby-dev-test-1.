@@ -26,10 +26,14 @@ class DirectoriesController < ApplicationController
     end
   end
 
-  def destroy 
+  def destroy
     @directory = Directory.find(params[:id])
     @directory.destroy
     redirect_to directory_index_path
+  end
+
+  def show_all
+    @directories = Directory.root_path
   end
 
   private

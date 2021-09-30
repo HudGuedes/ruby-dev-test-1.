@@ -1,5 +1,14 @@
 class Directory < ApplicationRecord
   has_many :archives
-  scope :root_path, -> { where(parent_id: nil) }
-  scope :childrens, ->(id) { where(parent_id: id) }
+  belongs_to :parent, class_name: 'Directory', foreign_key: 'parent_id', optional: true
+  scope :root_path, -> { where(parent_id: nil).order(:title) }
+  scope :childrens, ->(id) { where(parent_id: id).order(:title) }
+
+  def get_childrens
+    Directory.childrens(id)
+  end
+
+  def has_childrens?
+    Directory.childrens(id).count > 0
+  end
 end
